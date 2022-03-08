@@ -1,12 +1,22 @@
-import navBar from "./Components/navBar"
-import logo from './logo.svg';
-import './App.css';
+import Header from "./Components/Header"
+import ItemCount from "./Components/ItemCount"
+import ItemListContainer from "./Components/ItemListContainer"
 
 function App() {
-  return <>
-    <navBar/>
-    <itemListContainer />
-    </>
+
+    const usuarios = ["Fede"]
+    const miOnAdd = () => {}
+
+    return (
+        <>
+            <Header/>
+            <ItemCount nombre="Usuario"  onAdd={miOnAdd}  stock={6} initial={1}>
+                <p>Libreria Mundo</p>
+                <p>Tus libros, ahora</p>
+            </ItemCount>
+            <ItemListContainer/>
+        </>
+    )
 }
 
-export default App;
+export default App

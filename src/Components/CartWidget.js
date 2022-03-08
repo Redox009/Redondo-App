@@ -1,9 +1,9 @@
 import logo from './logo.png';
 
-function cartWidget (){
+function CartWidget (){
     return <>
     <img src={logo} alt="Logo" />
     </>
 }
 
-export default cartWidget;
+export default CartWidget;
