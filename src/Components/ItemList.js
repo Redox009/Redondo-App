@@ -1,11 +1,14 @@
-import Item from "./Components/Item"
+import Item from "../Components/Item"
 
 
-const List = () => {
-return (
-   
-         <li><Item/></li>
-        
-);
-        }
-export default List
+const ListItem = ({productos}) => {
+        return (
+            <ul>
+                {productos.map((producto) => {
+                    return <Item key={producto.id} producto={producto}/>
+                })}
+            </ul>
+        )
+    }
+    
+    export default ListItem
