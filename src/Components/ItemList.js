@@ -1,3 +1,4 @@
+import React from "react";
 import Item from "../Components/Item"
 
 
@@ -12,3 +13,5 @@ const ListItem = ({productos}) => {
     }
     
     export default ListItem
+
+

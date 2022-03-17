@@ -1,10 +1,16 @@
-const ItemDetail = () => {
+
+
+
+const ItemDetail = ({productosMacetasDetalle}) => {
     return (
-      <div>
-          <p><a href=""><img src="../img/producto4.png" alt="" ></img></a></p>
-          <p>Weird Stories I</p>
-          <p>Precio : 3000</p>
-      </div>
+          <div>
+            
+              <p>{productosMacetasDetalle.nombre}</p>
+              <p>Precio : ${productosMacetasDetalle.precio}</p>
+              <img src = {productosMacetasDetalle.imagen}  alt="Maceta"></img>
+          </div>
+        
+      
     )
   }
   

@@ -1,20 +1,22 @@
 import Header from "./Components/Header"
 import ItemCount from "./Components/ItemCount"
 import ItemListContainer from "./Components/ItemListContainer"
+import ItemDetailContainer from "./Components/ItemDetailContainer"
+import {Route, Router, Routes} from "react-router-dom"
+
 
 function App() {
 
-    const usuarios = ["Fede"]
-    const miOnAdd = () => {}
-
     return (
         <>
-            <Header/>
-            <ItemCount nombre="Usuario"  onAdd={miOnAdd}  stock={6} initial={1}>
-                <p>Libreria Mundo</p>
-                <p>Tus libros, ahora</p>
-            </ItemCount>
-            <ItemListContainer/>
+        
+        <Header/>
+            <Routes>  
+            <Route path="/" element={<ItemListContainer/>}/> 
+            <Route path="/categoria/:id" element={<ItemListContainer/>}/>
+            <Route path="/macetas/:id" element={<ItemDetailContainer/>}/>
+            </Routes>
+        
         </>
     )
 }
