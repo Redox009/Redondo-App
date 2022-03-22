@@ -4,24 +4,29 @@ import { useParams } from "react-router-dom"
 
 
 let productosMacetasDetalle = [
-  {
+    {
       id: 1,
       nombre: "Maceta Chica",
       imagen: "../img/producto4.png",
       precio: 153,
-      categoria : 1
+      categoria : 1,
+      stock: 5
   },
   {
       id: 2,
       nombre: "Maceta Mediana",
+      imagen: "../img/producto4.png",
       precio: 200,
-      categoria : 2
+      categoria : 2,
+      stock: 10
   },
   {
       id: 3,
       nombre: "Maceta Grande",
+      imagen: "../img/producto4.png",
       precio: 300,
-      categoria : 3
+      categoria : 3,
+      stock: 2
   }
 ]
 
@@ -61,6 +66,7 @@ const ItemDetailContainer = () => {
       <>
   
           <ItemDetail productosMacetasDetalle={productos}/>
+          
       </>
   )
 }
