@@ -1,26 +1,24 @@
-import {useState,  useContext} from "react"
-import {contexto} from "../Components/miContexto"
+import {useState} from "react"
 
 
-const Main = ({productos}) => {
-    
-    const initial = 0;
+const ItemCount = ({initial,stock,onAdd}) => {
+
     const [contador, setContador] = useState(initial)
 
 
     const agregar = () => {
       
-        setContador(contador + 1);
-        if (contador > productos){
-            return  setContador(contador - 1)
+        ;
+        if (contador < stock){
+            setContador(contador + 1)
         }
     }
 
     const quitar = () => {
 
-        setContador(contador - 1)
-        if (contador < 0){
-            return  setContador(contador + 1)
+        
+        if (contador > 0){
+            setContador(contador - 1)
         }
     }
 
@@ -29,10 +27,15 @@ const Main = ({productos}) => {
         setContador(0)
     }
 
+    const confirmar = (e) => {
+        console.log(e)
+        onAdd(contador)
+    }
+
     return (
         <main className="container">
             
-            <p>Cantidad de Macetas en Stock: {productos}</p>
+            <p>Cantidad Disponible: {stock}</p>
             <p>Cantidad de Macetas: {contador}</p>
 
             <button onClick={agregar}>Agregar</button>
@@ -41,9 +44,10 @@ const Main = ({productos}) => {
 
             <button onClick={resetear}>Resetear</button>
             <br></br>
-
+            <br></br>
+            <button onClick={confirmar}>Confirmar</button>
         </main>
     );
 }
 
-export default Main;
+export default ItemCount;

@@ -1,11 +1,36 @@
 import ListItem from "../Components/ItemList"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import { MACETAS } from "./Data"
 
+let productosMacetas = [
+    {
+      id: 1,
+      nombre: "Maceta Chica",
+      imagen: "../img/producto4.png",
+      precio: 153,
+      categoria : "chicas",
+      stock: 5
+  },
+  {
+      id: 2,
+      nombre: "Maceta Mediana",
+      imagen: "../img/producto4.png",
+      precio: 200,
+      categoria : "medianas",
+      stock: 10
+  },
+  {
+      id: 3,
+      nombre: "Maceta Grande",
+      imagen: "../img/producto4.png",
+      precio: 300,
+      categoria : "grandes",
+      stock: 2
+  }
+]
 
 const ItemListContainer = () => {
-    
+
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
     const {tipos} = useParams()
@@ -18,11 +43,11 @@ const ItemListContainer = () => {
             setTimeout(() => {
                 console.log(tipos)
                 if (!tipos) {
-                    productosMacetas = MACETAS.filter((MACETAS) => MACETAS.categoria === tipos);
+                     productosMacetas.filter((productosMacetas) => productosMacetas.categoria === tipos);
                      return res(productosMacetas) 
                 }
                 else {
-                    return res(productosMacetas = MACETAS) 
+                    return res(productosMacetas) 
                 }
               }
             
@@ -45,10 +70,10 @@ const ItemListContainer = () => {
 
     },[tipos])
 
-
     return (
         <>
-            <ListItem productosM={items}/>
+            <p>{loading ? "Cargando..." : "Productos a la Venta:"}</p>
+            <ListItem productosM={productos}/>
         </>
     )
 }
